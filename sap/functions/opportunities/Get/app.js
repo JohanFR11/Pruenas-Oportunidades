@@ -6,7 +6,7 @@ async function main () {
   try {
     const url = `${CREDENTIALS.url}sap/byd/odata/cust/v1/khopportunity/OpportunityCollection?$format=json&$expand=DocumentReference,EmployeeResponsible/EmployeeResponsibleName,ProspectParty/ProspectPartyName,SalesBusinessArea,SalesUnit/SalesUnitName,Text,Item`
     const res = await axios.get(url, {
-      auth: CREDENTIALS.authTest
+      auth: CREDENTIALS.auth
     })
 
     try {
