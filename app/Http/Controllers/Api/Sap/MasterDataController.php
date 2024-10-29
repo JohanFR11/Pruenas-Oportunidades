@@ -53,7 +53,7 @@ class MasterDataController extends Controller
 
     public function __construct()
     {
-        $this->sapUrl = env('SAP_URL_PRODUCCTION');
+        $this->sapUrl = env('SAP_URL_TEST');
         $this->format = 'json';
         $this->today = "date('Y-m-d')T00:00:00";
         $this->username = env('SAP_USERNAME_PRODUCTION');
