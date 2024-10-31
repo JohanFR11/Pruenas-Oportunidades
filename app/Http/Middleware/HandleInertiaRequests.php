@@ -52,7 +52,15 @@ class HandleInertiaRequests extends Middleware
                 if(!$request->user()) {
                     return redirect('/login');
                 }
-                $user_id = $request->user()->roles[0]->id;
+                $user = $request->user();
+                $user_id = null;
+                
+                // Verificar si el usuario tiene roles
+                if ($user->roles->isNotEmpty()) {
+                    $user_id = $user->roles[0]->id;
+                } else {
+                    return [];
+                }
 
                 $reports = KpiCategory::with(['kpi' => function ($query) use ($user_id) {
                     $query->whereHas('roles', function ($subQuery) use ($user_id) {
